@@ -1,0 +1,5 @@
+en:
+  fatal:
+    errors:
+      red_alert:
+        test_in_production: 'You are trying to run tests in production mode. Please do not do this!!!'

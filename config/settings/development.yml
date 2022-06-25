@@ -1,0 +1,3 @@
+db:
+  database: ads_microservice_development_2
+  max_connections: 1

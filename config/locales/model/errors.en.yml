@@ -1,0 +1,11 @@
+en:
+  model:
+    errors:
+      blank: 'Cannot be blank'
+      required: 'Is required'
+      not_found: '%{record} not found'
+      user_name:
+          format: 'Can contain only letters'
+      email:
+        format: 'Invalid format'
+        taken: 'Has already been taken'
