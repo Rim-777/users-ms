@@ -28,5 +28,9 @@ class UsersRoutes < Application
         error_response(operation.ad)
       end
     end
+
+    patch '/:id' do
+      user_params = validate_with!(params, UserUpdateParamsContract)
+    end
   end
 end

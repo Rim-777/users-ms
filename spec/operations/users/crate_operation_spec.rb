@@ -121,6 +121,7 @@ RSpec.describe Users::CreateOperation do
         include_examples :failure
       end
     end
+
     context 'first_name, last_name' do
       context 'invalid format' do
         before do

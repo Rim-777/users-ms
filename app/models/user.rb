@@ -4,7 +4,6 @@ class User < Sequel::Model
   plugin :association_dependencies
   plugin :secure_password, cost: 12, include_validations: false
 
-  # NAME_FORMAT = /\A\w+\z/
   NAME_FORMAT = /^[A-z]+$/
 
   # one_to_many :sessions, class: UserSession

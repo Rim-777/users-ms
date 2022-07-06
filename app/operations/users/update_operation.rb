@@ -14,7 +14,7 @@ module Users
 
     def call
       set_user
-      create_user
+      update_user
     end
 
     private
@@ -23,7 +23,7 @@ module Users
       @user = User.find(id: @user_id)
       return if @user
 
-      interrupt_with_errors!([I18n.t(:not_found, scope: 'model.errors')])
+      interrupt_with_errors!([I18n.t(:not_found, scope: 'model.errors', record: 'User')])
     end
 
     def update_user
@@ -38,7 +38,7 @@ module Users
     def attributes
       result = {}
       result[:email] = @email if @email
-      result[:password] = @password if @password
+      result[:password] = @password
       result[:first_name] = @first_name if @first_name
       result[:last_name] = @last_name if @last_name
       result
