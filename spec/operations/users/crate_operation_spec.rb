@@ -26,7 +26,7 @@ RSpec.describe Users::CreateOperation do
         expect(subject_call.errors).to be_empty
       end
 
-      it 'creates a new ad' do
+      it 'creates a new user' do
         expect { subject_call }
           .to change { User.count }.from(0).to(1)
       end

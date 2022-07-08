@@ -6,8 +6,8 @@ class User < Sequel::Model
 
   NAME_FORMAT = /^[A-z]+$/
 
-  # one_to_many :sessions, class: UserSession
-  # add_association_dependencies sessions: :delete
+  one_to_many :sessions, class: UserSession
+  add_association_dependencies sessions: :delete
 
   include ::Validations
 

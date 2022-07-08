@@ -8,9 +8,9 @@ shared_examples 'api/params_failure' do
   it 'returns an expected error body' do
     expect(response_body['errors'])
       .to include(
-            {
-              'detail' => "Some of the given parameters are invalid: #{error_details}"
-            }
-          )
+        {
+          'detail' => "Some of the given parameters are invalid: #{error_details}"
+        }
+      )
   end
 end

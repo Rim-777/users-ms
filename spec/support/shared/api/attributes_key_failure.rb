@@ -3,7 +3,7 @@
 shared_examples 'api/attributes_key_failure' do
   context '#data/attributes' do
     context 'missing key' do
-      let(:error_details) { "{:data=>{:attributes=>[\"is missing\"]}}" }
+      let(:error_details) { '{:data=>{:attributes=>["is missing"]}}' }
 
       let(:params) do
         {
@@ -23,7 +23,7 @@ shared_examples 'api/attributes_key_failure' do
     end
 
     context 'invalid value' do
-      let(:error_details) { "{:data=>{:attributes=>[\"must be a hash\"]}}" }
+      let(:error_details) { '{:data=>{:attributes=>["must be a hash"]}}' }
 
       before do
         params[:data][:attributes] = nil

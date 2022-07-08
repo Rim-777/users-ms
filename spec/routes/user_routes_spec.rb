@@ -24,14 +24,14 @@ RSpec.describe UserRoutes, type: :routes do
       User.all.each_index do |i|
         expect(response_body['data'][i])
           .to a_hash_including(
-                {
-                  'attributes' => a_hash_including({
-                                                     'first_name' => 'Timo',
-                                                     'last_name' => 'Moss',
-                                                   }, 'email'),
-                  'type' => 'user'
-                }, 'id'
-              )
+            {
+              'attributes' => a_hash_including({
+                                                 'first_name' => 'Timo',
+                                                 'last_name' => 'Moss'
+                                               }, 'email'),
+              'type' => 'user'
+            }, 'id'
+          )
       end
     end
   end
@@ -64,9 +64,10 @@ RSpec.describe UserRoutes, type: :routes do
           'id' => User.last.id.to_s,
           'type' => 'user',
           'attributes' => {
-            "email" => "test@mail.test",
-            "first_name" => "Tom",
-            "last_name" => "Johns" }
+            'email' => 'test@mail.test',
+            'first_name' => 'Tom',
+            'last_name' => 'Johns'
+          }
         }
       end
 

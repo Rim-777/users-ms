@@ -2,7 +2,7 @@
 
 shared_examples 'api/data_key_failure' do
   context '#data' do
-    let(:key) {:data}
+    let(:key) { :data }
 
     context 'missing key' do
       let(:error_details) { "{:#{key}=>[\"is missing\"]}" }
