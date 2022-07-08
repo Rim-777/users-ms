@@ -4,3 +4,4 @@ en:
       not_found: 'Resource not found'
       not_unique: 'Resource has been already taken'
       invalid_parameters: 'Some of the given parameters are invalid: %{details}'
+      invalid_format: 'invalid format'

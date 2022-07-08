@@ -9,4 +9,6 @@ class UserCreateParamsContract < Dry::Validation::Contract
       end
     end
   end
+
+  rule(%i[data attributes email]).validate(format: RegExp::EMAIL_FORMAT)
 end

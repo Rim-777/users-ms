@@ -1,4 +1,4 @@
-class UsersRoutes < Application
+class UserRoutes < Application
   helpers PaginationLinks
 
   namespace '/v1/users' do
@@ -14,23 +14,22 @@ class UsersRoutes < Application
 
     post do
       user_params = validate_with!(params, UserCreateParamsContract)
-      operation = Ads::CreateOperation.call(
-        ad: ad_params[:ad],
-        user_id_ref: params[:user_id_ref]
+      operation = Users::CreateOperation.call(
+        user_params[:data][:attributes]
       )
 
       if operation.success?
-        serializer = AdSerializer.new(operation.ad)
+        serializer = UserSerializer.new(operation.user)
         status 201
         json serializer.serializable_hash
       else
         status 422
-        error_response(operation.ad)
+        error_response(operation.user)
       end
     end
 
-    patch '/:id' do
-      user_params = validate_with!(params, UserUpdateParamsContract)
-    end
+    # patch '/:id' do
+    #   user_params = validate_with!(params, UserUpdateParamsContract)
+    # end
   end
 end
