@@ -9,7 +9,7 @@ shared_examples 'api/data_key_failure' do
 
       before do
         params.delete(key)
-        post '/v1/users', params
+        perform_request(params)
       end
 
       it_behaves_like 'api/params_failure'
@@ -20,7 +20,7 @@ shared_examples 'api/data_key_failure' do
 
       before do
         params[key] = nil
-        post '/v1/users', params
+        perform_request(params)
       end
 
       it_behaves_like 'api/params_failure'

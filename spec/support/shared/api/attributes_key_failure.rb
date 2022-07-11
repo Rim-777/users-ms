@@ -16,7 +16,7 @@ shared_examples 'api/attributes_key_failure' do
       end
 
       before do
-        post '/v1/users', params
+        perform_request(params)
       end
 
       it_behaves_like 'api/params_failure'
@@ -27,7 +27,7 @@ shared_examples 'api/attributes_key_failure' do
 
       before do
         params[:data][:attributes] = nil
-        post '/v1/users', params
+        perform_request(params)
       end
 
       it_behaves_like 'api/params_failure'

@@ -1,10 +1,10 @@
 RSpec.describe UserRoutes, type: :routes do
   let(:user_id_ref) { 101 }
 
-  describe 'GET /v1/users' do
+  describe 'GET /' do
     before do
       create_list(:user, 3)
-      get '/v1/users'
+      get '/'
     end
 
     it 'returns a collection of users' do
@@ -17,7 +17,7 @@ RSpec.describe UserRoutes, type: :routes do
 
     it 'contains pagination links' do
       expect(response_body['links'])
-        .to eq({ 'first' => '/v1/users?page=1', 'last' => '/v1/users?page=1' })
+        .to eq({ 'first' => '/?page=1', 'last' => '/?page=1' })
     end
 
     it 'responds with an expected response body' do
@@ -36,9 +36,9 @@ RSpec.describe UserRoutes, type: :routes do
     end
   end
 
-  describe 'POST /v1/users' do
-    def post_request(params)
-      post '/v1/users', params
+  describe 'POST /' do
+    def perform_request(params)
+      post '/', params
     end
 
     let(:params) do
@@ -55,7 +55,7 @@ RSpec.describe UserRoutes, type: :routes do
     end
 
     before do
-      post_request(params)
+      perform_request(params)
     end
 
     context 'valid parameters' do
@@ -89,7 +89,7 @@ RSpec.describe UserRoutes, type: :routes do
 
           before do
             params[:data][:attributes].delete(key)
-            post_request(params)
+            perform_request(params)
           end
 
           it_behaves_like 'api/params_failure'
@@ -100,7 +100,7 @@ RSpec.describe UserRoutes, type: :routes do
 
           before do
             params[:data][:attributes][key] = nil
-            post_request(params)
+            perform_request(params)
           end
 
           it_behaves_like 'api/params_failure'
@@ -111,7 +111,7 @@ RSpec.describe UserRoutes, type: :routes do
 
           before do
             params[:data][:attributes][key] = { test: 'test' }
-            post_request(params)
+            perform_request(params)
           end
 
           it_behaves_like 'api/params_failure'
@@ -128,7 +128,7 @@ RSpec.describe UserRoutes, type: :routes do
 
           before do
             params[:data][:attributes][key] = 'test@'
-            post_request(params)
+            perform_request(params)
           end
 
           it_behaves_like 'api/params_failure'

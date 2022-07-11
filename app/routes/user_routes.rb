@@ -1,7 +1,7 @@
 class UserRoutes < Application
   helpers PaginationLinks
 
-  namespace '/v1/users' do
+  namespace '/' do
     get do
       users = User.reverse_order(:updated_at)
       page_num = params[:page].presence || 1
@@ -24,7 +24,7 @@ class UserRoutes < Application
         json serializer.serializable_hash
       else
         status 422
-        error_response(operation.user)
+        error_response(operation.user || operation.errors)
       end
     end
 

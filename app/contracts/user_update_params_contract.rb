@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserUpdateParamsContract < Dry::Validation::Contract
   params do
     required(:data).hash do

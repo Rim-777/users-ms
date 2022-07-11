@@ -8,11 +8,13 @@ module UserSessions
     option :password
 
     attr_reader :session
+    attr_reader :encrypted_token
 
     def call
       set_user
       validate_password
       create_session
+      generate_token
     end
 
     private
@@ -36,8 +38,12 @@ module UserSessions
       if @session.valid?
         @user.add_session(@session)
       else
-        fail!(@session.errors)
+        interrupt_with_errors!(@session.errors)
       end
+    end
+
+    def generate_token
+      @encrypted_token = JwtEncoder.encode(uuid: @session.uuid)
     end
   end
 end

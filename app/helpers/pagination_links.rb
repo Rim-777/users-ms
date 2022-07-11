@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PaginationLinks
   def pagination_links(dataset)
     return {} if dataset.pagination_record_count.zero?

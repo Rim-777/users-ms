@@ -18,6 +18,7 @@ gem 'sequel', '~> 5.57'
 gem 'sequel_secure_password', '~> 0.2.15'
 gem 'sinatra', '~> 2.2', require: 'sinatra/base'
 gem 'sinatra-contrib', '~> 2.2'
+gem 'jwt', '~> 1.5', '>= 1.5.4'
 
 group :development do
   gem 'rubocop', require: false
@@ -28,4 +29,5 @@ group :test do
   gem 'factory_bot', '~> 6.2', '>= 6.2.1'
   gem 'rack-test', '~> 1.1'
   gem 'rspec', '~> 3.11'
+  gem 'json_matchers', '~> 0.4.0'
 end
