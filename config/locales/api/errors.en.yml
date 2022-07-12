@@ -6,3 +6,6 @@ en:
       invalid_parameters: 'Some of the given parameters are invalid: %{details}'
       invalid_format: 'invalid format'
       invalid_credentials: 'Password does not match email'
+      missing_session: 'Missing session'
+      missing_session_user: 'Missing session user'
+      invalid_access_token_format: 'Invalid access token format'

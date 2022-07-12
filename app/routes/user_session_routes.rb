@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserSessionRoutes < Application
   namespace '/' do
     post do
